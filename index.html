@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital Experts - Boosting your business with next-level digital marketing services based in Pakistan, working globally.">
-    <meta name="keywords" content="Digital Experts, digital marketing, e-commerce management, Shopify, social media management, Facebook ads, TikTok ads, YouTube ads, Facebook page growth, TikTok monetization, video editing, thumbnail design, SEO, content writing, Canva Pro, WhatsApp bots, digital strategy, promotion, Pakistan, global">
+    <meta name="description" content="Digital Experts - Explore our range of digital marketing services including e-commerce, social media, advertising, SEO, and more.">
+    <meta name="keywords" content="Digital Experts services, digital marketing services, e-commerce management, social media management, Facebook ads, TikTok ads, YouTube ads, SEO, content writing, WhatsApp bots, digital strategy">
     <meta name="author" content="Abdul Nasir">
-    <title>Digital Experts - Your Digital Marketing Partner</title>
+    <title>Services - Digital Experts</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -19,13 +19,17 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth; /* Smooth scrolling */
+            /* Removed smooth scrolling for multi-page layout */
+            color: #1A1A1A; /* Neutral Dark - Charcoal */
         }
         .section {
             padding: 80px 20px; /* Add some padding to sections */
         }
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #FFFFFF; /* Neutral Light - White */
+            color: #1A1A1A; /* Neutral Dark - Charcoal */
+            border-radius: 8px; /* Added border-radius to cards */
         }
         .card:hover {
             transform: translateY(-5px);
@@ -68,234 +72,107 @@
             cursor: pointer;
         }
 
-        /* Home Section Background - Updated with new image and fallback color */
-        #home {
-            background-image: url('digital (1920 x 800 px).jpg'); /* Updated background image URL */
-            background-size: cover; /* Cover the entire section */
-            background-position: center; /* Center the background image */
-            background-color: #555; /* Fallback background color for debugging */
-            color: white; /* Change text color to white for better contrast */
-            position: relative; /* Needed for overlay */
+        /* Navigation Bar background */
+        nav {
+            background-color: #1A1A1A; /* Neutral Dark - Charcoal */
         }
 
-         /* Optional: Add an overlay to the background image for better text readability */
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-            z-index: 1; /* Place overlay behind content */
+        /* Navigation links color */
+        nav a {
+            color: #FFFFFF; /* Neutral Light - White */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
         }
 
-        #home .container {
-             position: relative; /* Bring content above overlay */
-             z-index: 2;
+        /* Navigation links hover color */
+        nav a:hover {
+            color: #FF3C38; /* Primary Color - Bright Red */
+        }
+
+        /* Mobile menu background */
+        #mobile-menu {
+             background-color: #1A1A1A; /* Neutral Dark - Charcoal */
+        }
+
+        /* Mobile menu links color */
+        #mobile-menu a {
+             color: #FFFFFF; /* Neutral Light - White */
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+
+         /* Mobile menu links hover color */
+        #mobile-menu a:hover {
+             background-color: #333333; /* Slightly darker Gray for hover background */
+             color: #FF3C38; /* Primary Color - Bright Red for hover text */
         }
 
 
-        /* Adjust text color for elements within the home section if needed */
-        #home h1, #home p, #home a, #home button {
-            color: white;
+        /* Services Section Specific Styles */
+        #services {
+            background-color: #0057FF; /* Secondary Color - Electric Blue */
+            color: #FFFFFF; /* Neutral Light - White */
+        }
+         #services h2, #services p, #services h3, #services .card {
+             color: #1A1A1A; /* Neutral Dark - Charcoal for text in Services section */
+         }
+
+        /* Services hover effect to show details */
+        .card .service-details {
+             color: #1A1A1A; /* Text color for service details */
         }
 
-        /* Make "Trusted by Leading Brands" text black */
-        #home h3 {
-            color: black;
+
+        /* Footer background and text */
+        footer {
+            background-color: #1A1A1A; /* Neutral Dark - Charcoal */
+            color: #F5F7FA; /* Mid Gray - Cool Gray */
+        }
+
+        /* Footer links hover color */
+        footer a:hover {
+            color: #FF3C38; /* Primary Color - Bright Red */
         }
 
 
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-[#0057FF] text-[#1A1A1A]">
 
-    <nav class="fixed w-full bg-white shadow-md z-50">
+    <nav class="fixed w-full shadow-md z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Digital Experts</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="text-gray-800 hover:text-blue-600">Home</a>
-                <a href="#about" class="text-gray-800 hover:text-blue-600">About Us</a>
-                <a href="#services" class="text-gray-800 hover:text-blue-600">Services</a>
-                <a href="#portfolio" class="text-gray-800 hover:text-blue-600">Portfolio</a>
-                <a href="#testimonials" class="text-gray-800 hover:text-blue-600">Testimonials</a>
-                <a href="#blog" class="text-gray-800 hover:text-blue-600">Blog</a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+            <a href="index.html" class="text-2xl font-bold text-[#FFFFFF]">Digital Experts</a> <div class="hidden md:flex space-x-6">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button id="mobile-menu-button" class="md:hidden text-[#FFFFFF] focus:outline-none"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-            <a href="#home" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Home</a>
-            <a href="#about" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">About Us</a>
-            <a href="#services" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Services</a>
-            <a href="#portfolio" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Portfolio</a>
-            <a href="#testimonials" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Testimonials</a>
-            <a href="#blog" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Blog</a>
-            <a href="#contact" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden shadow-md">
+             <a href="index.html" class="block px-6 py-3">Home</a>
+            <a href="about.html" class="block px-6 py-3">About Us</a>
+            <a href="services.html" class="block px-6 py-3">Services</a>
+            <a href="portfolio.html" class="block px-6 py-3">Portfolio</a>
+            <a href="testimonials.html" class="block px-6 py-3">Testimonials</a>
+            <a href="blog.html" class="block px-6 py-3">Blog</a>
+            <a href="contact.html" class="block px-6 py-3">Contact</a>
         </div>
     </nav>
 
-    <section id="home" class="section flex items-center justify-center min-h-screen">
-        <div class="container mx-auto px-6 text-center pt-20" data-aos="fade-up">
-            <h1 class="text-6xl font-bold mb-4">We Grow Brands Online 🚀</h1>
-            <p class="text-lg mb-8">Digital Experts – Boosting your business with next-level marketing.</p>
-            <div class="space-x-4">
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">
-                    Get a Free Consultation
-                </a>
-                <a href="#services" class="bg-transparent border-2 border-white hover:border-blue-600 text-white hover:text-blue-600 font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">
-                    Explore Services
-                </a>
-            </div>
-
-            <div class="mt-16" data-aos="fade-up">
-                <h3 class="text-lg font-semibold mb-6">Trusted by Leading Brands</h3>
-                <div class="flex flex-wrap justify-center items-center space-x-8 opacity-75">
-                    <img src="https://placehold.co/100x50/E2E8F0/000000?text=Abayabuth" alt="Abayabuth Logo" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 rounded-full hover:scale-110">
-                    <img src="https://placehold.co/100x50/E2E8F0/000000?text=Mrexcuseme" alt="Mrexcuseme Logo" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 rounded-full hover:scale-110">
-                    <img src="https://placehold.co/100x50/E2E8F0/000000?text=Shahimports" alt="Shahimports Logo" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 rounded-full hover:scale-110">
-                    <img src="https://placehold.co/100x50/E2E8F0/000000?text=Nexigini" alt="Nexigini Logo" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 rounded-full hover:scale-110">
-                    <img src="https://placehold.co/100x50/E2E8F0/000000?text=Maxlon" alt="Maxlon Logo" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 rounded-full hover:scale-110">
-                </div>
-            </div>
-        </div>
-    </section>
-
-     <section id="overview" class="section bg-gray-100">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Expertise</h2>
-             <p class="text-xl text-gray-700 text-center mb-12">We provide a range of digital marketing services to help your business thrive online.</p>
+    <section id="services" class="section pt-20"> <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Expertise</h2>
+             <p class="text-xl text-center mb-12">We provide a range of digital marketing services to help your business thrive online.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl mb-4">🛍️</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Solutions</h3>
-                    <p class="text-gray-700 text-sm">From store setup to management, we handle your online store needs.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl mb-4">📱</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Social Media Mastery</h3>
-                    <p class="text-gray-700 text-sm">Engage your audience and grow your brand on popular platforms.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-4xl mb-4">📈</div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Targeted Advertising</h3>
-                    <p class="text-gray-700 text-sm">Reach the right customers with effective paid campaigns.</p>
-                </div>
-            </div>
-             <div class="text-center mt-12">
-                 <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">View All Services</a>
-             </div>
-        </div>
-    </section>
-
-     <section id="why-choose-us" class="section bg-white">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Why Choose Digital Experts?</h2>
-            <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <img src="https://placehold.co/600x400/E2E8F0/A0AEC0?text=Why+Choose+Us+Image" alt="Why Choose Us" class="rounded-lg shadow-md">
-                </div>
-                <div class="md:w-1/2">
-                    <ul class="list-disc list-inside text-lg text-gray-700 leading-relaxed space-y-4">
-                        <li>Expert team with proven track record.</li>
-                        <li>Tailored strategies for your unique business needs.</li>
-                        <li>Focus on measurable results and ROI.</li>
-                        <li>Transparent communication and reporting.</li>
-                        <li>Pakistan-based agency with global reach.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-     </section>
-
-
-    <section id="about" class="section bg-gray-100">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">About Us</h2>
-            <p class="text-xl text-gray-700 text-center mb-12">We’re a Pakistan-based agency working globally 🌍.</p>
-            <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/400x400/E2E8F0/A0AEC0?text=Abdul+Nasir+Photo" alt="Abdul Nasir Photo" class="rounded-full mx-auto w-64 h-64 object-cover shadow-lg">
-                </div>
-                <div class="md:w-2/3">
-                    <h3 class="text-3xl font-semibold text-gray-900 mb-4">Abdul Nasir - Founder</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Hey! I’m Abdul Nasir, a passionate Digital Marketer and Web Developer with over 3 years of experience helping brands grow and thrive online.
-                    </p>
-                    <div id="more-about" class="hidden">
-                        <p class="text-lg text-gray-700 leading-relaxed mt-4">
-                            I’m the founder of Digital Experts, a full-service digital marketing agency based in Pakistan, serving clients worldwide 🌍. From designing stunning Shopify stores to running high-converting Facebook and TikTok ads, I help businesses build a powerful online presence and generate real results.
-                        </p>
-                         <p class="text-lg text-gray-700 leading-relaxed mt-4">
-                            My journey started with small freelance gigs, and today I lead a team of creative minds working on international projects — including e-commerce, monetization, and branding.
-                        </p>
-                         <p class="text-lg text-gray-700 leading-relaxed mt-4 font-semibold">
-                            Whether you're a startup or a growing business, my goal is simple:
-                            To help you shine online 🚀
-                        </p>
-                    </div>
-                    <button id="read-more-button" class="mt-4 text-blue-600 hover:underline focus:outline-none">
-                        Read More
-                    </button>
-                </div>
-            </div>
-
-            <div class="mt-16" data-aos="fade-up">
-                 <h3 class="text-3xl font-semibold text-center text-gray-900 mb-8">Our Team</h3>
-                 <div class="flex flex-wrap justify-center gap-8">
-                     <div class="text-center">
-                         <img src="https://placehold.co/150x150/E2E8F0/A0AEC0?text=Team+1" alt="Team Member 1" class="rounded-full mx-auto mb-2 w-32 h-32 object-cover">
-                         <p class="font-semibold text-gray-900">Team Member Name 1</p>
-                         <p class="text-sm text-gray-600">Role</p>
-                     </div>
-                     <div class="text-center">
-                         <img src="https://placehold.co/150x150/E2E8F0/A0AEC0?text=Team+2" alt="Team Member 2" class="rounded-full mx-auto mb-2 w-32 h-32 object-cover">
-                         <p class="font-semibold text-gray-900">Team Member Name 2</p>
-                         <p class="text-sm text-gray-600">Role</p>
-                     </div>
-                      <div class="text-center">
-                         <img src="https://placehold.co/150x150/E2E8F0/A0AEC0?text=Team+3" alt="Team Member 3" class="rounded-full mx-auto mb-2 w-32 h-32 object-cover">
-                         <p class="font-semibold text-gray-900">Team Member Name 3</p>
-                         <p class="text-sm text-gray-600">Role</p>
-                     </div>
-                 </div>
-            </div>
-
-            <div class="mt-16" data-aos="fade-up">
-                 <div class="flex flex-col md:flex-row md:space-x-12">
-                     <div class="md:w-1/2 mb-8 md:mb-0">
-                         <h3 class="text-3xl font-semibold text-gray-900 mb-4">Our Mission</h3>
-                         <p class="text-lg text-gray-700 leading-relaxed">
-                             Our mission is to empower businesses of all sizes to succeed in the digital landscape by providing expert strategies and execution.
-                         </p>
-                     </div>
-                      <div class="md:w-1/2">
-                         <h3 class="text-3xl font-semibold text-gray-900 mb-4">Our Vision</h3>
-                         <p class="text-lg text-gray-700 leading-relaxed">
-                             Our vision is to be the leading digital marketing agency recognized for driving exceptional growth and delivering measurable results for our clients worldwide.
-                         </p>
-                     </div>
-                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section bg-white">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">E-commerce Management</h3>
-                    <p class="text-gray-700 text-sm">Comprehensive management of your online store operations.</p>
-                    <div class="service-details hidden mt-4 text-gray-600 text-left">
+                <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-4xl mb-4">🛍️</div>
+                    <h3 class="text-xl font-semibold mb-2">E-commerce Solutions</h3>
+                    <p class="text-sm">From store setup to management, we handle your online store needs.</p>
+                    <div class="service-details hidden mt-4 text-sm text-left">
                         <p class="font-semibold">Includes:</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Product Listing & Optimization</li>
@@ -306,30 +183,11 @@
                          <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                     </div>
                 </div>
-                <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Shopify Store Designing</h3>
-                    <p class="text-gray-700 text-sm">Designing and setting up professional and high-converting Shopify stores.</p>
-                    <div class="service-details hidden mt-4 text-gray-600 text-left">
-                        <p class="font-semibold">Includes:</p>
-                        <ul class="list-disc list-inside ml-4">
-                            <li>Custom Theme Design</li>
-                            <li>App Integration</li>
-                            <li>Payment Gateway Setup</li>
-                            <li>Mobile Responsiveness</li>
-                        </ul>
-                         <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
-                    </div>
-                </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Social Media Management</h3>
-                    <p class="text-gray-700 text-sm">Managing your social media presence for engagement and growth.</p>
-                    <div class="service-details hidden mt-4 text-gray-600 text-left">
+                 <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-2">Social Media Mastery</h3>
+                    <p class="text-sm">Engage your audience and grow your brand on popular platforms.</p>
+                    <div class="service-details hidden mt-4 text-sm text-left">
                         <p class="font-semibold">Includes:</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Content Creation & Scheduling</li>
@@ -340,13 +198,11 @@
                          <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                     </div>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Paid Advertising</h3>
-                    <p class="text-gray-700 text-sm">Running effective ad campaigns on major platforms.</p>
-                    <div class="service-details hidden mt-4 text-gray-600 text-left">
+                 <div class="card p-6 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold mb-2">Targeted Advertising</h3>
+                    <p class="text-sm">Running effective ad campaigns on major platforms.</p>
+                    <div class="service-details hidden mt-4 text-sm text-left">
                         <p class="font-semibold">Platforms:</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Facebook Ads</li>
@@ -356,13 +212,13 @@
                          <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                     </div>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fab fa-facebook-f"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Facebook Page Growth & Monetization</h3>
-                    <p class="text-gray-700 text-sm">Strategies to grow and monetize your Facebook page.</p>
-                    <div class="service-details hidden mt-4 text-gray-600 text-left">
+                    <h3 class="text-2xl font-semibold mb-4">Facebook Page Growth & Monetization</h3>
+                    <p class="text-sm">Strategies to grow and monetize your Facebook page.</p>
+                    <div class="service-details hidden mt-4 text-sm text-left">
                         <p class="font-semibold">Focus Areas:</p>
                         <ul class="list-disc list-inside ml-4">
                             <li>Audience Building</li>
@@ -372,269 +228,88 @@
                          <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                     </div>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fab fa-tiktok"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">TikTok UK/USA Monetization</h3>
-                    <p class="text-gray-700 text-sm">Expert guidance on monetizing your TikTok presence in specific regions.</p>
+                    <h3 class="text-2xl font-semibold mb-4">TikTok UK/USA Monetization</h3>
+                    <p class="text-sm">Expert guidance on monetizing your TikTok presence in specific regions.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Video Editing & Thumbnail Design</h3>
-                    <p class="text-gray-700 text-sm">Creating engaging videos and eye-catching thumbnails.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Video Editing & Thumbnail Design</h3>
+                    <p class="text-sm">Creating engaging videos and eye-catching thumbnails.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">SEO Services</h3>
-                    <p class="text-gray-700 text-sm">Improving your website's visibility on search engines.</p>
+                    <h3 class="text-2xl font-semibold mb-4">SEO Services</h3>
+                    <p class="text-sm">Improving your website's visibility on search engines.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fas fa-pen"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Content Writing</h3>
-                    <p class="text-gray-700 text-sm">Crafting compelling and engaging content for your brand.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Content Writing</h3>
+                    <p class="text-sm">Crafting compelling and engaging content for your brand.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Canva Pro Subscription Sale</h3>
-                    <p class="text-gray-700 text-sm">Offering Canva Pro subscriptions.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Canva Pro Subscription Sale</h3>
+                    <p class="text-sm">Offering Canva Pro subscriptions.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">WhatsApp Bots</h3>
-                    <p class="text-gray-700 text-sm">Developing automated WhatsApp bots for your business.</p>
+                    <h3 class="text-2xl font-semibold mb-4">WhatsApp Bots</h3>
+                    <p class="text-sm">Developing automated WhatsApp bots for your business.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
-                 <div class="card bg-gray-100 p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-600 text-5xl mb-4">
+                 <div class="card p-8 rounded-lg shadow-md text-center">
+                    <div class="text-[#0057FF] text-5xl mb-4">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Digital Strategy & Promotion</h3>
-                    <p class="text-gray-700 text-sm">Developing and executing comprehensive digital strategies.</p>
+                    <h3 class="text-2xl font-semibold mb-4">Digital Strategy & Promotion</h3>
+                    <p class="text-sm">Developing and executing comprehensive digital strategies.</p>
                      <p class="mt-4 text-sm italic">Click for details/case studies (Feature not implemented in this single file).</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="section bg-gray-100">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Portfolio / Case Studies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="portfolio-item cursor-pointer rounded-lg overflow-hidden shadow-md bg-white">
-                    <img src="https://placehold.co/800x600/E2E8F0/A0AEC0?text=Project+1+Image" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Title 1</h3>
-                        <p class="text-gray-700 text-sm mb-4">Brief description of the project.</p>
-                        <div class="text-gray-600 text-sm hidden portfolio-details">
-                            <p class="font-semibold mt-2">Challenge:</p>
-                            <p>[Describe the client's problem or goal]</p>
-                            <p class="font-semibold mt-2">What We Did:</p>
-                            <p>[Explain the strategies and actions taken]</p>
-                            <p class="font-semibold mt-2">Results:</p>
-                            <p>[Show the outcome, e.g., X% increase in sales, Y leads generated]</p>
-                            <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Results+Screenshot" alt="Results Screenshot" class="mt-4 w-full object-cover">
-                        </div>
-                         <button class="read-more-portfolio mt-4 text-blue-600 hover:underline focus:outline-none">Read More</button>
-                    </div>
-                </div>
-                 <div class="portfolio-item cursor-pointer rounded-lg overflow-hidden shadow-md bg-white">
-                    <img src="https://placehold.co/800x600/E2E8F0/A0AEC0?text=Project+2+Image" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Title 2</h3>
-                        <p class="text-gray-700 text-sm mb-4">Brief description of the project.</p>
-                         <div class="text-gray-600 text-sm hidden portfolio-details">
-                            <p class="font-semibold mt-2">Challenge:</p>
-                            <p>[Describe the client's problem or goal]</p>
-                            <p class="font-semibold mt-2">What We Did:</p>
-                            <p>[Explain the strategies and actions taken]</p>
-                            <p class="font-semibold mt-2">Results:</p>
-                            <p>[Show the outcome, e.g., X% increase in sales, Y leads generated]</p>
-                             <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Results+Screenshot" alt="Results Screenshot" class="mt-4 w-full object-cover">
-                        </div>
-                         <button class="read-more-portfolio mt-4 text-blue-600 hover:underline focus:outline-none">Read More</button>
-                    </div>
-                </div>
-                 <div class="portfolio-item cursor-pointer rounded-lg overflow-hidden shadow-md bg-white">
-                    <img src="https://placehold.co/800x600/E2E8F0/A0AEC0?text=Project+3+Image" alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Title 3</h3>
-                        <p class="text-gray-700 text-sm mb-4">Brief description of the project.</p>
-                         <div class="text-gray-600 text-sm hidden portfolio-details">
-                            <p class="font-semibold mt-2">Challenge:</p>
-                            <p>[Describe the client's problem or goal]</p>
-                            <p class="font-semibold mt-2">What We Did:</p>
-                            <p>[Explain the strategies and actions taken]</p>
-                            <p class="font-semibold mt-2">Results:</p>
-                            <p>[Show the outcome, e.g., X% increase in sales, Y leads generated]</p>
-                             <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Results+Screenshot" alt="Results Screenshot" class="mt-4 w-full object-cover">
-                        </div>
-                         <button class="read-more-portfolio mt-4 text-blue-600 hover:underline focus:outline-none">Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img01">
-        </div>
-    </section>
-
-    <section id="testimonials" class="section bg-white">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Client Testimonials</h2>
-            <div class="relative w-full max-w-2xl mx-auto">
-                <div id="testimonial-slider" class="flex overflow-hidden rounded-lg shadow-md">
-                    <div class="testimonial-slide min-w-full bg-gray-100 p-8 text-center">
-                        <img src="https://placehold.co/100x100/E2E8F0/A0AEC0?text=Client+1" alt="Client 1" class="rounded-full mx-auto mb-4">
-                        <p class="text-lg text-gray-700 italic mb-4">"Digital Experts helped us significantly increase our online sales through their effective e-commerce management and ad campaigns. Highly recommended!"</p>
-                        <p class="font-semibold text-gray-900">- Client Name 1, Company A</p>
-                         <p class="mt-4 text-sm italic">(Video testimonial available upon request)</p>
-                    </div>
-                    <div class="testimonial-slide min-w-full bg-gray-100 p-8 text-center">
-                         <img src="https://placehold.co/100x100/E2E8F0/A0AEC0?text=Client+2" alt="Client 2" class="rounded-full mx-auto mb-4">
-                        <p class="text-lg text-gray-700 italic mb-4">"Their social media management transformed our online presence. We saw a huge boost in engagement and followers."</p>
-                        <p class="font-semibold text-gray-900">- Client Name 2, Company B</p>
-                         <p class="mt-4 text-sm italic">(Video testimonial available upon request)</p>
-                    </div>
-                    <div class="testimonial-slide min-w-full bg-gray-100 p-8 text-center">
-                         <img src="https://placehold.co/100x100/E2E8F0/A0AEC0?text=Client+3" alt="Client 3" class="rounded-full mx-auto mb-4">
-                        <p class="text-lg text-gray-700 italic mb-4">"The team at Digital Experts is professional and delivers results. Our TikTok monetization strategy was a great success thanks to them."</p>
-                        <p class="font-semibold text-gray-900">- Client Name 3, Company C</p>
-                         <p class="mt-4 text-sm italic">(Video testimonial available upon request)</p>
-                    </div>
-                </div>
-                <button id="prev-testimonial" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-md focus:outline-none">
-                    &#8592;
-                </button>
-                <button id="next-testimonial" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-md focus:outline-none">
-                    &#8594;
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="section bg-gray-100">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Blog</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Blog+Post+1" alt="Blog Post 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Top 5 Shopify Mistakes Beginners Make</h3>
-                        <p class="text-gray-700 text-sm mb-4">Learn about common pitfalls to avoid when starting your Shopify store.</p>
-                        <a href="#" class="text-blue-600 hover:underline">Read More</a>
-                    </div>
-                </div>
-                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Blog+Post+2" alt="Blog Post 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">How We Made $5K with TikTok Monetization in UK</h3>
-                        <p class="text-gray-700 text-sm mb-4">A case study on our successful TikTok monetization strategy in the UK market.</p>
-                        <a href="#" class="text-blue-600 hover:underline">Read More</a>
-                    </div>
-                </div>
-                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://placehold.co/400x200/E2E8F0/A0AEC0?text=Blog+Post+3" alt="Blog Post 3" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Essential SEO Tips for Small Businesses</h3>
-                        <p class="text-gray-700 text-sm mb-4">Simple yet effective SEO strategies to boost your small business online.</p>
-                        <a href="#" class="text-blue-600 hover:underline">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-center mt-12">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700">Previous</button>
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Next</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section bg-white">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Get in Touch</h2>
-            <div class="max-w-lg mx-auto">
-                <form id="contact-form" class="bg-gray-100 p-8 rounded-lg shadow-md">
-                    <div class="mb-6">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
-                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline">
-                            Send Message
-                        </button>
-                         <a href="https://wa.me/03415748311" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2.01c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.5 3.4 1.36 4.85l-1.42 5.19 5.31-1.39c1.41.77 3.01 1.17 4.66 1.17 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm4.93 14.6l-.31.18c-.9.52-2.36 1.08-3.97 1.08-1.5 0-2.8-.4-3.9-1.08l-.24-.14-2.41.63.64-2.35-.15-.24c-.67-1.08-1.03-2.32-1.03-3.65 0-4.15 3.38-7.53 7.53-7.53 2.02 0 3.9.79 5.33 2.22 1.43 1.43 2.22 3.31 2.22 5.33.01 4.15-3.37 7.53-7.52 7.53zm-3.92-1.44c-.23 0-.65-.09-.95-.2l-.55-.26c-.3-.14-1.76-.87-2.06-.98-.3-.1-.52-.15-.74.15-.22.3-.85 1.03-1.03 1.24-.18.22-.37.24-.69.08-.31-.15-1.3-.48-2.48-1.53-1.83-1.65-2.04-1.98-2.29-2.4-.25-.4-.02-.62.22-.85.2-.2.45-.48.67-.72.22-.25.29-.4.43-.65.15-.25.07-.48-.04-.67-.11-.19-.74-1.78-1.02-2.44-.28-.65-.57-.56-.78-.57-.2-.01-.43-.01-.66-.01-.23 0-.6.09-.92.45-.32.35-1.22 1.19-1.22 2.9 0 1.71 1.25 3.34 1.42 3.56.17.22 2.47 3.78 5.97 5.22 3.5.94 4.38.75 5.17.69.79-.06 2.36-.96 2.7-1.89.34-.93.34-1.73.24-1.89-.1-.15-.37-.24-.78-.43z"/></svg>
-                            WhatsApp
-                        </a>
-                    </div>
-                     <div id="form-message" class="mt-4 text-center text-sm font-semibold"></div>
-                </form>
-                <div class="mt-8 text-center text-gray-700">
-                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i> Email: digitalexpertsbusiness@gmail.com</p>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> Phone: 03315349223</p>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i> Location: [Your Location Here]</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta" class="section bg-blue-600 text-white text-center">
-        <div class="container mx-auto px-6" data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-4">Ready to Grow Your Business?</h2>
-            <p class="text-xl mb-8">Let's discuss how Digital Experts can help you achieve your digital goals.</p>
-            <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-200 font-bold py-3 px-8 rounded-md focus:outline-none focus:shadow-outline">
-                Get Your Free Consultation Today!
-            </a>
-        </div>
-     </section>
-
-
-    <footer class="bg-gray-800 text-white text-center p-6">
+    <footer class="text-center p-6">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <p>&copy; 2023 Abdul Nasir - Digital Experts. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6 mb-4 md:mb-0">
-                    <a href="#about" class="hover:text-blue-600">About Us</a>
-                    <a href="#services" class="hover:text-blue-600">Services</a>
-                    <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
-                    <a href="#blog" class="hover:text-blue-600">Blog</a>
-                    <a href="#contact" class="hover:text-blue-600">Contact</a>
+                    <a href="about.html" class="hover:text-[#FF3C38]">About Us</a>
+                    <a href="services.html" class="hover:text-[#FF3C38]">Services</a>
+                    <a href="portfolio.html" class="hover:text-[#FF3C38]">Portfolio</a>
+                    <a href="blog.html" class="hover:text-[#FF3C38]">Blog</a>
+                    <a href="contact.html" class="hover:text-[#FF3C38]">Contact</a>
                 </div>
                  <div class="flex space-x-4 ml-6">
-                    <a href="#" class="text-white hover:text-blue-600"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white hover:text-blue-600"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="text-white hover:text-blue-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-[#F5F7FA] hover:text-[#FF3C38]"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-[#F5F7FA] hover:text-[#FF3C38]"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-[#F5F7FA] hover:text-[#FF3C38]"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="text-[#F5F7FA] hover:text-[#FF3C38]"><i class="fab fa-youtube"></i></a>
                  </div>
             </div>
-             <div class="mt-6 text-sm text-gray-400">
+             <div class="mt-6 text-sm text-[#F5F7FA]">
                  <a href="#" class="hover:underline mr-4">Privacy Policy</a>
                  <a href="#" class="hover:underline">Terms of Service</a>
              </div>
@@ -650,7 +325,7 @@
     </script>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle (Keep this script in all pages)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -658,39 +333,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Hide mobile menu after clicking a link
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // About Me "Read More" toggle (Updated for About Us section)
-        const readMoreButton = document.getElementById('read-more-button');
-        const moreAbout = document.getElementById('more-about');
-
-        if (readMoreButton && moreAbout) { // Check if elements exist
-            readMoreButton.addEventListener('click', () => {
-                moreAbout.classList.toggle('hidden');
-                if (moreAbout.classList.contains('hidden')) {
-                    readMoreButton.textContent = 'Read More';
-                } else {
-                    readMoreButton.textContent = 'Read Less';
-                }
-            });
-        }
-
-
-        // Services hover effect to show details
+        // Services hover effect to show details (Keep this script for the Services page)
         const serviceCards = document.querySelectorAll('.card');
         serviceCards.forEach(card => {
             const details = card.querySelector('.service-details');
@@ -704,120 +347,7 @@
             }
         });
 
-
-        // Portfolio Modal (for image view)
-        const modal = document.getElementById("myModal");
-        const modalImg = document.getElementById("img01");
-        const portfolioItems = document.querySelectorAll(".portfolio-item img"); // Select images within portfolio items
-        const span = document.getElementsByClassName("close")[0];
-
-        portfolioItems.forEach(item => {
-            item.addEventListener('click', () => {
-                modal.style.display = "flex";
-                modalImg.src = item.src; // Use the src of the clicked image
-            });
-        });
-
-        if(span) { // Check if close button exists
-            span.onclick = function() {
-              modal.style.display = "none";
-            }
-        }
-
-
-        if(modal) { // Check if modal exists
-            modal.onclick = function(event) {
-                if (event.target === modal) {
-                    modal.style.display = "none";
-                }
-            }
-        });
-
-
-        // Portfolio Item "Read More" toggle (for case study details)
-        const readMorePortfolioButtons = document.querySelectorAll('.read-more-portfolio');
-
-        readMorePortfolioButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const details = button.closest('.portfolio-item').querySelector('.portfolio-details');
-                 if(details) { // Check if details element exists
-                    details.classList.toggle('hidden');
-                    if (details.classList.contains('hidden')) {
-                        button.textContent = 'Read More';
-                    } else {
-                        button.textContent = 'Read Less';
-                    }
-                 }
-            });
-        });
-
-
-        // Testimonial Slider
-        const slider = document.getElementById('testimonial-slider');
-        const prevButton = document.getElementById('prev-testimonial');
-        const nextButton = document.getElementById('next-testimonial');
-        const slides = document.querySelectorAll('.testimonial-slide');
-        let currentIndex = 0;
-
-        function updateSlider() {
-            if(slider) { // Check if slider exists
-                slider.style.transform = `translateX(${-currentIndex * 100}%)`;
-            }
-        }
-
-        if(nextButton) { // Check if button exists
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlider();
-            });
-        }
-
-        if(prevButton) { // Check if button exists
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlider();
-            });
-        }
-
-        // Auto slide (optional)
-        // setInterval(() => {
-        //     currentIndex = (currentIndex + 1) % slides.length;
-        //     updateSlider();
-        // }, 5000); // Change slide every 5 seconds
-
-
-        // Contact Form Validation
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-
-        if(contactForm) { // Check if form exists
-            contactForm.addEventListener('submit', function(event) {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                if (name === '' || email === '' || message === '') {
-                    formMessage.textContent = 'Please fill in all required fields.';
-                    formMessage.style.color = 'red';
-                    event.preventDefault(); // Prevent form submission
-                } else {
-                    // Basic email format validation
-                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(email)) {
-                        formMessage.textContent = 'Please enter a valid email address.';
-                        formMessage.style.color = 'red';
-                        event.preventDefault(); // Prevent form submission
-                    } else {
-                        // If validation passes, you can handle form submission (e.g., using Fetch API to send data to a backend)
-                        // For this client-side only example, we just show a success message
-                        formMessage.textContent = 'Message sent successfully!';
-                        formMessage.style.color = 'green';
-                        contactForm.reset(); // Clear the form
-                        event.preventDefault(); // Prevent actual form submission for this example
-                    }
-                }
-            });
-        }
+        // Remove other scripts not relevant to this page
     </script>
 
 </body>

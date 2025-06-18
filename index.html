@@ -3,427 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changezi Motors - Trusted Car Dealership in Islamabad</title>
-    <meta name="description" content="Changezi Motors offers a premium selection of used cars in F-10 Markaz, Islamabad. Specializing in Japanese vehicles like Toyota Prius, Aqua, and Vitz. Buy, sell, or trade with us!">
-    <meta name="keywords" content="used cars islamabad, toyota prius for sale islamabad, changezi motors, car dealership f-10, japanese cars islamabad">
+    <title>Nasir Plugins - Powering WordPress, One Plugin at a Time</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --neon-blue: #00ffff;
+            --dark-bg: #0a0a0a;
+            --light-text: #e5e7eb;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111111;
-            color: #E5E7EB;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .header-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+
+        .neon-glow {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
         }
-        .section-title {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 900;
+        
+        .neon-button {
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            overflow: hidden;
+            transition: 0.5s;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 0.5rem;
         }
-        .btn-primary {
-            background-color: #DC2626;
-            transition: background-color 0.3s ease;
+
+        .neon-button:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            box-shadow: 0 0 5px var(--neon-blue),
+                        0 0 25px var(--neon-blue),
+                        0 0 50px var(--neon-blue),
+                        0 0 100px var(--neon-blue);
+            -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
         }
-        .btn-primary:hover {
-            background-color: #B91C1C;
+        
+        .neon-border {
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .btn-secondary {
-             background-color: transparent;
-             border: 2px solid #DC2626;
-             color: #DC2626;
-             transition: all 0.3s ease;
+
+        .neon-border:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
-        .btn-secondary:hover {
-            background-color: #DC2626;
-            color: white;
+
+        .section-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 0%, rgba(0, 255, 255, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
         }
-        .car-card {
-            border: 1px solid #374151;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        .nav-link.active {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
         }
-        .car-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+        
+        /* Logic for showing/hiding pages */
+        .page {
+            display: none;
+            min-height: calc(100vh - 80px - 178px); /* Full height minus header and footer */
         }
-        .why-choose-us-card {
-             background-color: #1F2937;
-             border: 1px solid #4B5563;
+        .page.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
         }
-        .review-card {
-            background-color: #1F2937;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animated-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pricing-toggle-bg {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .pricing-toggle-btn {
+            background-color: var(--neon-blue);
+            transition: transform 0.3s ease;
+        }
+        input:checked + .pricing-toggle-bg .pricing-toggle-btn {
+            transform: translateX(100%);
+        }
+        
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body class="overflow-x-hidden">
 
-    <!-- Header & Hero Section -->
-    <header class="header-bg text-white">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl lg:text-3xl font-bold tracking-wider">CHANGEZI MOTORS</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#inventory" class="hover:text-red-500 transition">Inventory</a>
-                <a href="#sell-car" class="hover:text-red-500 transition">Sell Your Car</a>
-                <a href="#contact" class="hover:text-red-500 transition">Contact</a>
-                <a href="tel:+923345555210" class="btn-primary text-white font-bold py-2 px-4 rounded-lg">Call Us</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <i class="fas fa-bars fa-lg"></i>
-                </button>
-            </div>
-        </nav>
-         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#inventory" class="block py-2 px-4 text-sm hover:bg-gray-700">Inventory</a>
-            <a href="#sell-car" class="block py-2 px-4 text-sm hover:bg-gray-700">Sell Your Car</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
-             <a href="tel:+923345555210" class="block py-2 px-4 text-sm hover:bg-gray-700">Call Us</a>
-        </div>
-
-
-        <div class="container mx-auto px-6 py-24 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight uppercase">Find Your Next Ride in Islamabad</h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Your trusted partner for premium used cars, specializing in top-quality Japanese models.</p>
-            <div class="mt-8 flex justify-center items-center space-x-2 text-yellow-400">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="text-white ml-2">4.8 Stars from 44+ Google Reviews</span>
-            </div>
-            <div class="mt-10">
-                <a href="#inventory" class="btn-primary text-white font-bold py-4 px-8 rounded-lg text-lg uppercase tracking-wider">View Inventory</a>
-            </div>
+    <!-- Header -->
+    <header id="header" class="bg-black/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50 border-b border-[var(--border-color)]">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-widest text-white nav-link">NASIR<span class="text-[var(--neon-blue)]">PLUGINS</span></a>
+            <nav id="desktop-nav" class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300 active">Home</a>
+                <a href="#plugins" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Plugins</a>
+                <a href="#services" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Services</a>
+                <a href="#pricing" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Pricing</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">About</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Available Cars Section -->
-        <section id="inventory" class="py-20 bg-gray-900">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-lg z-50 p-6 md:hidden">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white text-2xl">&times;</button>
+        <nav id="mobile-nav" class="flex flex-col space-y-6 mt-16">
+            <a href="#home" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Home</a>
+            <a href="#plugins" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Plugins</a>
+            <a href="#services" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Services</a>
+            <a href="#pricing" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Pricing</a>
+            <a href="#about" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">About</a>
+            <a href="#contact" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Contact</a>
+        </nav>
+    </div>
+
+
+    <main id="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active flex items-center justify-center text-center relative overflow-hidden">
+            <div class="section-glow"></div>
+            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+            <div class="z-10 px-4">
+                <h1 class="text-4xl md:text-7xl font-black uppercase tracking-wider leading-tight">
+                    <span class="text-white">Powering WordPress,</span><br>
+                    <span class="text-[var(--neon-blue)]">One Plugin at a Time</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6">
+                    Elevate your website with our suite of powerful, intuitive plugins and expert digital marketing services. Built for performance, designed for growth.
+                </p>
+                <div class="mt-12">
+                    <a href="#plugins" class="neon-button nav-link">Explore Plugins</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plugins Page -->
+        <section id="plugins" class="page py-24 sm:py-32 relative">
+            <div class="section-glow"></div>
             <div class="container mx-auto px-6">
-                <h2 class="section-title text-3xl md:text-4xl text-center mb-4 uppercase">Available Cars</h2>
-                <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Browse our hand-picked selection of quality pre-owned vehicles. Each car is thoroughly inspected to ensure it meets our high standards.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Car 1 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1617469722011-B635f339a494?q=80&w=2070&auto=format&fit=crop" alt="Toyota Prius" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Toyota Prius S-Grade</h3>
-                            <p class="text-gray-400 text-sm">2021 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>45,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Hybrid</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 7,500,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">Our Plugin Arsenal</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Innovative solutions to supercharge your WordPress site's functionality and user experience.</p>
+                </div>
+                <!-- Search Bar -->
+                <div class="max-w-xl mx-auto mb-12">
+                    <div class="relative">
+                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </span>
+                        <input type="search" id="plugin-search" placeholder="Search for plugins (e.g., SEO, Security...)" class="w-full bg-black/50 border border-[var(--border-color)] rounded-md py-3 pl-10 pr-4 text-white focus:outline-none focus:border-[var(--neon-blue)] transition-colors">
+                    </div>
+                </div>
+
+                <div id="plugins-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Plugin Card 1 -->
+                    <div class="plugin-card animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col">
+                        <div class="flex-grow">
+                            <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-bolt"></i></div>
+                            <h3 class="plugin-title text-2xl font-bold text-white mb-3">WP Speedster</h3>
+                            <p class="text-gray-400">Optimize your site's performance with one-click caching, asset minification, and image compression.</p>
+                        </div>
+                        <button class="demo-btn mt-6 w-full bg-[var(--neon-blue)] text-black font-semibold py-3 rounded-md hover:bg-white transition-colors duration-300" data-plugin="speedster">View Demo</button>
+                    </div>
+                    <!-- Other plugin cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page -->
+        <section id="services" class="page py-24 sm:py-32 relative bg-black">
+             <div class="section-glow"></div>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">Our Professional Services</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">From concept to conversion, we provide complete digital solutions to grow your business.</p>
+                </div>
+                <div class="space-y-8">
+                    <!-- Service Item 1: Website Development -->
+                    <div class="animated-card flex flex-col md:flex-row items-center bg-black/50 p-8 rounded-lg neon-border">
+                        <div class="text-5xl text-[var(--neon-blue)] mr-0 md:mr-8 mb-4 md:mb-0"><i class="fas fa-laptop-code"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Website Development</h3>
+                            <p class="text-gray-400 mt-2">We build stunning, responsive, and high-performance WordPress websites that are optimized for speed and user experience.</p>
                         </div>
                     </div>
-                     <!-- Car 2 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1616455009033-689370736340?q=80&w=2070&auto=format&fit=crop" alt="Toyota Aqua" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Toyota Aqua G-Selection</h3>
-                            <p class="text-gray-400 text-sm">2020 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>62,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Hybrid</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 6,200,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
+                    <!-- Service Item 2: SEO -->
+                     <div class="animated-card flex flex-col md:flex-row items-center bg-black/50 p-8 rounded-lg neon-border">
+                        <div class="text-5xl text-[var(--neon-blue)] mr-0 md:mr-8 mb-4 md:mb-0"><i class="fas fa-search-dollar"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Search Engine Optimization (SEO)</h3>
+                            <p class="text-gray-400 mt-2">Boost your online visibility and drive organic traffic with our comprehensive SEO strategies, from keyword research to technical optimization.</p>
                         </div>
                     </div>
-                     <!-- Car 3 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1621007958821-3b745915d3e2?q=80&w=2070&auto=format&fit=crop" alt="Toyota Vitz" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Toyota Vitz F 1.0</h3>
-                            <p class="text-gray-400 text-sm">2019 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>80,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Petrol</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 4,850,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Car 4 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop" alt="Honda Vezel" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Honda Vezel Z</h3>
-                            <p class="text-gray-400 text-sm">2020 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>55,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Hybrid</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 8,100,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Car 5 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1964&auto=format&fit=crop" alt="Toyota Land Cruiser" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Toyota Land Cruiser ZX</h3>
-                            <p class="text-gray-400 text-sm">2022 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>15,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Diesel</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 55,000,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Car 6 -->
-                    <div class="car-card bg-gray-800 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1629826391676-63032530a931?q=80&w=2070&auto=format&fit=crop" alt="Suzuki Swift" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold">Suzuki Swift GLX CVT</h3>
-                            <p class="text-gray-400 text-sm">2023 Model</p>
-                            <div class="flex justify-between items-center mt-4 text-sm text-gray-300">
-                                <span><i class="fas fa-tachometer-alt mr-2 text-red-500"></i>9,000 km</span>
-                                <span><i class="fas fa-gas-pump mr-2 text-red-500"></i>Petrol</span>
-                                <span><i class="fas fa-cogs mr-2 text-red-500"></i>Automatic</span>
-                            </div>
-                            <div class="mt-6 flex justify-between items-center">
-                                <p class="text-2xl font-bold text-red-500">PKR 4,500,000</p>
-                                <a href="tel:+923345555210" class="btn-secondary text-sm font-bold py-2 px-4 rounded-lg">Get Details</a>
-                            </div>
+                    <!-- Service Item 3: SMM -->
+                     <div class="animated-card flex flex-col md:flex-row items-center bg-black/50 p-8 rounded-lg neon-border">
+                        <div class="text-5xl text-[var(--neon-blue)] mr-0 md:mr-8 mb-4 md:mb-0"><i class="fas fa-bullhorn"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Social Media Marketing (SMM)</h3>
+                            <p class="text-gray-400 mt-2">Engage your audience and build your brand on social media. We create and manage effective campaigns on all major platforms.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
-        <section class="py-20 bg-black">
-             <div class="container mx-auto px-6 text-center">
-                <h2 class="section-title text-3xl md:text-4xl text-center mb-12 uppercase">Why Choose Changezi Motors?</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="why-choose-us-card p-8 rounded-lg">
-                        <i class="fas fa-shield-alt fa-3x text-red-500 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2">Trusted & Verified</h3>
-                        <p class="text-gray-400">With a 4.8-star rating on Google, our reputation is built on trust and customer satisfaction.</p>
-                    </div>
-                    <div class="why-choose-us-card p-8 rounded-lg">
-                        <i class="fas fa-hand-holding-usd fa-3x text-red-500 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2">Transparent Pricing</h3>
-                        <p class="text-gray-400">No hidden fees. We believe in honest, upfront pricing for a fair deal every time.</p>
-                    </div>
-                    <div class="why-choose-us-card p-8 rounded-lg">
-                        <i class="fas fa-road fa-3x text-red-500 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2">Hassle-Free Process</h3>
-                        <p class="text-gray-400">From test drives to paperwork, we make the car buying process smooth and simple.</p>
-                    </div>
+        <!-- Pricing Page -->
+        <section id="pricing" class="page py-24 sm:py-32 relative">
+            <div class="section-glow"></div>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">Transparent Pricing</h2>
+                    <p class="text-lg text-gray-400 mt-4">Choose the plan that's right for you. Simple, fair, and packed with value.</p>
+                </div>
+                
+                <!-- Toggle Switch -->
+                <div class="flex justify-center items-center space-x-4 mb-12">
+                    <span class="font-semibold text-white">Monthly</span>
+                    <label for="pricing-toggle" class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+                        <div class="w-14 h-8 rounded-full peer pricing-toggle-bg peer-checked:after:translate-x-full after:absolute after:top-1 after:left-1 after:bg-[var(--neon-blue)] after:rounded-full after:h-6 after:w-6 after:transition-all"></div>
+                    </label>
+                    <span class="font-semibold text-white">Lifetime</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Pricing Plans -->
                 </div>
             </div>
         </section>
 
-        <!-- Sell Your Car Section -->
-        <section id="sell-car" class="py-20 bg-gray-900">
+        <!-- About Page -->
+        <section id="about" class="page py-24 sm:py-32 bg-black relative">
+             <div class="section-glow"></div>
             <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h2 class="section-title text-3xl md:text-4xl uppercase">Sell Your Car With Us</h2>
-                    <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Get a fair, competitive offer for your car. Fill out the form below to start the appraisal process.</p>
+                <!-- About content -->
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page py-24 sm:py-32 relative">
+            <div class="section-glow"></div>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">Get In Touch</h2>
+                    <p class="text-lg text-gray-400 mt-4">Have a question or a project in mind? We'd love to hear from you.</p>
                 </div>
-                <div class="max-w-3xl mx-auto mt-12 bg-gray-800 p-8 rounded-lg shadow-lg">
-                    <form>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
-                                <input type="text" id="name" class="w-full bg-gray-700 border-gray-600 rounded-md p-3 focus:ring-red-500 focus:border-red-500">
-                            </div>
-                            <div>
-                                <label for="contact-number" class="block text-sm font-medium mb-1">Contact Number</label>
-                                <input type="tel" id="contact-number" class="w-full bg-gray-700 border-gray-600 rounded-md p-3 focus:ring-red-500 focus:border-red-500">
-                            </div>
-                             <div>
-                                <label for="car-make" class="block text-sm font-medium mb-1">Car Make</label>
-                                <input type="text" id="car-make" placeholder="e.g., Toyota" class="w-full bg-gray-700 border-gray-600 rounded-md p-3 focus:ring-red-500 focus:border-red-500">
-                            </div>
-                             <div>
-                                <label for="car-model" class="block text-sm font-medium mb-1">Car Model & Year</label>
-                                <input type="text" id="car-model" placeholder="e.g., Corolla 2018" class="w-full bg-gray-700 border-gray-600 rounded-md p-3 focus:ring-red-500 focus:border-red-500">
-                            </div>
-                             <div class="md:col-span-2">
-                                <label for="car-details" class="block text-sm font-medium mb-1">Additional Details</label>
-                                <textarea id="car-details" rows="4" placeholder="Mention mileage, condition, registration city, etc." class="w-full bg-gray-700 border-gray-600 rounded-md p-3 focus:ring-red-500 focus:border-red-500"></textarea>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium mb-1">Upload Car Photos</label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-md">
-                                    <div class="space-y-1 text-center">
-                                        <i class="fas fa-image fa-2x mx-auto text-gray-500"></i>
-                                        <div class="flex text-sm text-gray-400">
-                                            <label for="file-upload" class="relative cursor-pointer bg-gray-700 rounded-md font-medium text-red-500 hover:text-red-400 focus-within:outline-none px-2">
-                                                <span>Upload files</span>
-                                                <input id="file-upload" name="file-upload" type="file" class="sr-only" multiple>
-                                            </label>
-                                            <p class="pl-1">or drag and drop</p>
-                                        </div>
-                                        <p class="text-xs text-gray-500">PNG, JPG up to 10MB</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-8 text-center">
-                            <button type="submit" class="btn-primary text-white font-bold py-3 px-10 rounded-lg text-lg uppercase">Get Offer Now</button>
-                        </div>
+                <div class="max-w-3xl mx-auto">
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Form fields -->
                     </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Customer Reviews Section -->
-        <section class="py-20 bg-black">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-3xl md:text-4xl text-center mb-12 uppercase">What Our Customers Say</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="review-card p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div id="form-status" class="text-center mt-6"></div>
+                    <div class="text-center mt-12">
+                        <p class="text-gray-400 mb-4">Connect with us on social media</p>
+                        <div class="flex justify-center space-x-6 text-2xl">
+                             <a href="https://www.facebook.com/digitalexpertsbusiness/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/abdulnasirnasirofficial/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.threads.net/@abdulnasirnasirofficial" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-threads"></i></a>
                         </div>
-                        <p class="text-gray-300 mb-4">"Absolutely professional and trustworthy. Got my Prius from Changezi Motors and the process was incredibly smooth. Highly recommended dealership in F-10."</p>
-                        <p class="font-bold text-white">- Ahmed Raza</p>
-                    </div>
-                     <div class="review-card p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                        <p class="text-gray-300 mb-4">"Sold my Vitz through them. They gave me a great price and handled all the paperwork. Very transparent and hassle-free."</p>
-                        <p class="font-bold text-white">- Fatima Khan</p>
-                    </div>
-                     <div class="review-card p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        </div>
-                        <p class="text-gray-300 mb-4">"The best place in Islamabad for Japanese used cars. Their collection is clean and the staff is very knowledgeable. Found the perfect Aqua for my family."</p>
-                        <p class="font-bold text-white">- Usman Ali</p>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                 <h2 class="section-title text-3xl md:text-4xl text-center mb-12 uppercase">Get In Touch</h2>
-                 <div class="flex flex-wrap -mx-4">
-                    <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                         <div class="bg-gray-800 p-8 rounded-lg h-full">
-                            <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
-                            <div class="space-y-4">
-                                <p class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-4 text-red-500"></i><span>Shop #10, Ground Floor, Crescent Plaza, opposite flower market, F-10 Markaz, Islamabad</span></p>
-                                <p class="flex items-center"><i class="fas fa-phone-alt mr-4 text-red-500"></i><a href="tel:+923345555210" class="hover:text-red-500">+92 334 5555210</a></p>
-                                <p class="flex items-center"><i class="fab fa-whatsapp mr-4 text-red-500"></i><a href="https://wa.me/923345555210" target="_blank" class="hover:text-red-500">+92 334 5555210</a></p>
-                                <div class="pt-4">
-                                    <h4 class="font-bold text-lg mb-2">Business Hours</h4>
-                                    <p>Monday - Saturday: 10:00 AM – 7:30 PM</p>
-                                    <p>Sunday: Closed</p>
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-                    <div class="w-full lg:w-1/2 px-4">
-                        <div class="h-96 lg:h-full rounded-lg overflow-hidden">
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.349942488824!2d73.0238386152056!3d33.69991498069995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfbc4149867d%3A0x659556391494638a!2sChangezi%20Motors!5e0!3m2!1sen!2s!4v1672836261565!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-gray-400">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold text-white mb-4">CHANGEZI MOTORS</h3>
-                    <p class="text-sm">Your trusted dealership for premium pre-owned cars in the heart of Islamabad.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white">Home</a></li>
-                        <li><a href="#inventory" class="hover:text-white">Inventory</a></li>
-                        <li><a href="#sell-car" class="hover:text-white">Sell Your Car</a></li>
-                        <li><a href="#contact" class="hover:text-white">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Contact Info</h4>
-                     <ul class="space-y-2 text-sm">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2 w-4"></i>
-                            <span>Shop #10, Crescent Plaza, F-10 Markaz, Islamabad</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-2 w-4"></i>
-                            <a href="tel:+923345555210" class="hover:text-white">+92 334 5555210</a>
-                        </li>
-                     </ul>
-                </div>
-                 <div>
-                    <h4 class="font-bold text-white mb-4">Business Hours</h4>
-                     <ul class="space-y-2 text-sm">
-                        <li>Mon – Sat: 10:00 AM - 7:30 PM</li>
-                        <li>Sunday: Closed</li>
-                     </ul>
-                </div>
+    <footer class="bg-black border-t border-[var(--border-color)] py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <a href="#home" class="text-2xl font-bold tracking-widest text-white nav-link mb-4 inline-block">NASIR<span class="text-[var(--neon-blue)]">PLUGINS</span></a>
+            <div class="flex justify-center space-x-6 mb-8">
+                 <a href="#home" class="nav-link text-gray-400 hover:text-[var(--neon-blue)] transition-colors duration-300">Home</a>
+                <a href="#plugins" class="nav-link text-gray-400 hover:text-[var(--neon-blue)] transition-colors duration-300">Plugins</a>
+                <a href="#services" class="nav-link text-gray-400 hover:text-[var(--neon-blue)] transition-colors duration-300">Services</a>
+                 <a href="#about" class="nav-link text-gray-400 hover:text-[var(--neon-blue)] transition-colors duration-300">About</a>
+                <a href="#contact" class="nav-link text-gray-400 hover:text-[var(--neon-blue)] transition-colors duration-300">Contact</a>
             </div>
-        </div>
-        <div class="bg-gray-900 py-4">
-            <div class="container mx-auto px-6 text-center text-sm">
-                 <p>&copy; <span id="currentYear"></span> Changezi Motors. All Rights Reserved. </p>
-            </div>
+            <p class="text-gray-500">&copy; 2024 Nasir Plugins. All Rights Reserved.</p>
+            <p class="mt-2 text-sm text-gray-600">Built with <i class="fas fa-heart text-[var(--neon-blue)]"></i> for the WordPress Community</p>
         </div>
     </footer>
 
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/923345555210?text=Hello%2C%20I'm%20interested%20in%20a%20car." target="_blank" class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
-        <i class="fab fa-whatsapp fa-3x"></i>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923415748311" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-green-600 transition-colors z-40">
+        <i class="fab fa-whatsapp"></i>
     </a>
     
+    <!-- Plugin Demo Modal -->
+    <div id="demo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-black border border-[var(--border-color)] rounded-lg max-w-2xl w-full relative neon-border">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <div id="modal-content" class="p-8">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- DOM Element Selection ---
+        const allNavLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const animatedCards = document.querySelectorAll('.animated-card');
+        const pricingToggle = document.getElementById('pricing-toggle');
+        const demoButtons = document.querySelectorAll('.demo-btn');
+        const modal = document.getElementById('demo-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const contactForm = document.getElementById('contact-form');
+        const pluginSearch = document.getElementById('plugin-search');
+        const pluginCards = document.querySelectorAll('.plugin-card');
 
+        // --- Function Definitions ---
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+        }
+
+        function showPage(hash) {
+            const targetHash = hash || '#home';
+
+            // Hide all pages, then show the target page
+            pages.forEach(page => {
+                page.classList.remove('active');
+                if ('#' + page.id === targetHash) {
+                    page.classList.add('active');
+                }
+            });
+
+            // Update active state in navigation links
+            allNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === targetHash) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to the top of the content area
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu after navigation
+            closeMobileMenu();
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        function filterPlugins() {
+            const searchTerm = pluginSearch.value.toLowerCase();
+            pluginCards.forEach(card => {
+                const title = card.querySelector('.plugin-title').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                card.style.display = (title.includes(searchTerm) || description.includes(searchTerm)) ? 'flex' : 'none';
+            });
+        }
+
+        // --- Event Listeners & Initializers ---
+
+        // Mobile Menu
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+
+        // Page Navigation
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetHash = link.getAttribute('href');
+                // Update URL for multi-page feel
+                if (window.location.hash !== targetHash) {
+                   history.pushState(null, '', targetHash);
+                }
+                showPage(targetHash);
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            showPage(window.location.hash);
+        });
+
+        // On-Scroll Card Animations (for within-page content)
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedCards.forEach(el => cardObserver.observe(el));
+        
+        // Pricing Toggle
+        // (Add pricing elements back if needed, this is just the listener)
+        if (pricingToggle) {
+            pricingToggle.addEventListener('change', function() {
+                const isLifetime = this.checked;
+                const priceTags = document.querySelectorAll('.price-tag');
+                const priceTerms = document.querySelectorAll('.price-term');
+                priceTags.forEach(tag => {
+                    tag.textContent = isLifetime ? `$${tag.dataset.lifetime}` : `$${tag.dataset.monthly}`;
+                });
+                priceTerms.forEach(term => {
+                    term.textContent = isLifetime ? 'Lifetime Deal' : 'per month';
+                });
+            });
+        }
+        
+        // Plugin Search
+        if (pluginSearch) {
+            pluginSearch.addEventListener('input', filterPlugins);
+        }
+        
+        // Plugin Demo Modal
+        const modalContentEl = document.getElementById('modal-content');
+        // (Add pluginData object back if needed)
+        
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+        if (modal) {
+             modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+       
+        // Contact Form
+        if (contactForm) {
+            const formStatus = document.getElementById('form-status');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formStatus.innerHTML = '<p class="text-[var(--neon-blue)]">Thank you! Your message has been sent.</p>';
+                contactForm.reset();
+                 setTimeout(() => { formStatus.innerHTML = ''; }, 5000);
+            });
+        }
+        
+        // --- Initial Page Load ---
+        showPage(window.location.hash || '#home');
+    });
+    </script>
 </body>
 </html>

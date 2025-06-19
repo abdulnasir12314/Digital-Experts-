@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasir Plugins - Powering WordPress, One Plugin at a Time</title>
+    <title>Digital Experts - Powering Your Business Growth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,39 +118,68 @@
             transform: translateX(0);
         }
 
-        /* Logo Scroller */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+        /* Logo & Testimonial Scroller */
+        .scroller {
+            -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
         }
-        .scroller .scroller-inner {
-            animation: scroll 40s linear infinite;
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-100% - 2rem));
+            }
         }
         .scroller-inner {
             display: flex;
             flex-wrap: nowrap;
-            width: fit-content;
+            gap: 2rem;
+            animation: scroll 120s linear infinite;
         }
-        .scroller-inner img {
+        .logo-scroller-inner img {
             height: 40px;
-            margin: 0 2rem;
             filter: grayscale(1) brightness(1.5);
             transition: filter 0.3s;
         }
-         .scroller-inner img:hover {
+        .logo-scroller-inner img:hover {
             filter: grayscale(0) brightness(1);
-         }
+        }
+
+        .review-card {
+             width: 380px;
+             flex-shrink: 0;
+        }
         
-        /* Testimonial Carousel */
-        .testimonial-carousel {
-            position: relative;
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
         }
-        .testimonial-item {
-            display: none;
+        .article-content p, .article-content ul {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            color: var(--light-text);
+            opacity: 0.9;
         }
-        .testimonial-item.active {
-            display: block;
-            animation: fadeIn 0.5s;
+        .article-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .service-article h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .service-article p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .service-article ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -159,7 +188,7 @@
     <!-- Header -->
     <header id="header" class="bg-black/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50 border-b border-[var(--border-color)]">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold tracking-widest text-white nav-link">NASIR<span class="text-[var(--neon-blue)]">PLUGINS</span></a>
+            <a href="#home" class="text-xl md:text-2xl font-bold tracking-widest nav-link"><span class="text-white">DIGITAL</span><span class="text-[var(--neon-blue)]">EXPERTS</span></a>
             <nav id="desktop-nav" class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300 active">Home</a>
                 <a href="#services" class="nav-link text-gray-300 hover:text-[var(--neon-blue)] transition-colors duration-300">Services</a>
@@ -193,13 +222,13 @@
                 <div class="z-10 px-4">
                     <h1 class="text-4xl md:text-7xl font-black uppercase tracking-wider leading-tight">
                         <span class="text-white">Build Smarter with</span><br>
-                        <span class="text-[var(--neon-blue)]">Nasir Plugins</span>
+                        <span class="text-[var(--neon-blue)]">Digital Experts</span>
                     </h1>
                     <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6">
-                        Powerful, reliable, and marketing-ready tools to elevate your WordPress experience.
+                        Powerful, reliable, and marketing-ready tools to elevate your business experience.
                     </p>
                     <div class="mt-12 space-x-4">
-                        <a href="#plugins" class="neon-button nav-link">Explore Plugins</a>
+                        <a href="#services" class="neon-button nav-link">Explore Services</a>
                     </div>
                 </div>
             </section>
@@ -207,62 +236,62 @@
             <!-- Why Us Section -->
             <section class="py-20 bg-black">
                 <div class="container mx-auto px-6 text-center">
-                    <h2 class="animated-section text-3xl md:text-5xl font-bold text-white mb-12">Why Our Plugins & Services Are Best</h2>
+                    <h2 class="animated-section text-3xl md:text-5xl font-bold text-white mb-12">Why Our Services Are Best</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                         <div class="animated-card bg-black/50 p-6 rounded-lg neon-border">
-                            <i class="fas fa-code text-3xl text-[var(--neon-blue)] mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Optimized Code</h3>
+                            <i class="fas fa-puzzle-piece text-3xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Optimized & Secure Plugins</h3>
                         </div>
                         <div class="animated-card bg-black/50 p-6 rounded-lg neon-border" style="transition-delay: 100ms;">
-                            <i class="fas fa-shield-alt text-3xl text-[var(--neon-blue)] mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Secure & Lightweight</h3>
+                            <i class="fas fa-chart-line text-3xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Result-Driven Marketing</h3>
                         </div>
                         <div class="animated-card bg-black/50 p-6 rounded-lg neon-border" style="transition-delay: 200ms;">
-                            <i class="fas fa-headset text-3xl text-[var(--neon-blue)] mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Real Client Support</h3>
+                            <i class="fas fa-palette text-3xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">High-Converting Web Design</h3>
                         </div>
                         <div class="animated-card bg-black/50 p-6 rounded-lg neon-border" style="transition-delay: 300ms;">
-                            <i class="fas fa-id-badge text-3xl text-[var(--neon-blue)] mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Freemius Licensing</h3>
+                            <i class="fas fa-store text-3xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Robust E-commerce Solutions</h3>
                         </div>
                          <div class="animated-card bg-black/50 p-6 rounded-lg neon-border" style="transition-delay: 400ms;">
-                            <i class="fas fa-rocket text-3xl text-[var(--neon-blue)] mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Marketing-Ready Tools</h3>
+                            <i class="fas fa-cogs text-3xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Scalable Backend Systems</h3>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Top Plugins Section -->
+            <!-- Top Services Section -->
             <section id="plugins" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12">
-                        <h2 class="animated-section text-3xl md:text-5xl font-bold text-white">Our Top Plugins</h2>
+                        <h2 class="animated-section text-3xl md:text-5xl font-bold text-white">Our Top Services</h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col">
                             <div class="flex-grow">
-                                <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-bolt"></i></div>
-                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">WP Speedster</h3>
-                                <p class="text-gray-400">Optimize your site's performance with one-click caching and asset minification.</p>
+                                <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fab fa-wordpress"></i></div>
+                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">WordPress Development</h3>
+                                <p class="text-gray-400">Custom themes, plugins, and full website solutions built for performance and growth.</p>
                             </div>
-                            <button class="demo-btn mt-6 w-full bg-[var(--neon-blue)] text-black font-semibold py-3 rounded-md hover:bg-white transition-colors duration-300">View Demo</button>
+                            <a href="#service-wp-plugins" class="neon-button w-full text-center mt-6 nav-link">Learn More</a>
                         </div>
                         <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 100ms;">
                             <div class="flex-grow">
-                               <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
-                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">Guardian Security</h3>
-                                <p class="text-gray-400">A comprehensive security suite with firewall, malware scanning, and login protection.</p>
+                               <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-bullhorn"></i></div>
+                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">Digital Marketing</h3>
+                                <p class="text-gray-400">Comprehensive marketing strategies including SEO, SMM, and ad campaigns to boost your reach.</p>
                             </div>
-                            <button class="demo-btn mt-6 w-full bg-[var(--neon-blue)] text-black font-semibold py-3 rounded-md hover:bg-white transition-colors duration-300">View Demo</button>
+                             <a href="#service-digital-marketing" class="neon-button w-full text-center mt-6 nav-link">Learn More</a>
                         </div>
                         <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 200ms;">
                             <div class="flex-grow">
-                                <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-puzzle-piece"></i></div>
-                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">Elementor Kit Pro</h3>
-                                <p class="text-gray-400">Unlock advanced widgets and templates to build stunning pages with Elementor.</p>
+                                <div class="text-[var(--neon-blue)] text-4xl mb-4"><i class="fas fa-store"></i></div>
+                                <h3 class="plugin-title text-2xl font-bold text-white mb-3">E-commerce Solutions</h3>
+                                <p class="text-gray-400">Building and optimizing Shopify & WooCommerce stores that convert visitors into customers.</p>
                             </div>
-                            <button class="demo-btn mt-6 w-full bg-[var(--neon-blue)] text-black font-semibold py-3 rounded-md hover:bg-white transition-colors duration-300">View Demo</button>
+                             <a href="#service-woocommerce" class="neon-button w-full text-center mt-6 nav-link">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -273,75 +302,72 @@
                 <div class="container mx-auto px-6 text-center">
                     <h2 class="animated-section text-2xl md:text-3xl font-bold text-white mb-8">Integrated with the world’s biggest platforms for growth</h2>
                     <div class="scroller overflow-hidden relative w-full">
-                        <div class="scroller-inner flex">
-                            <img src="https://logodownload.org/wp-content/uploads/2014/10/wordpress-logo-1-1.png" alt="WordPress" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png" alt="Facebook" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo-1.png" alt="Instagram" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2018/11/woocommerce-logo-1.png" alt="WooCommerce" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2019/08/tiktok-logo-1.png" alt="TikTok" class="h-10 mx-8">
+                        <div class="scroller-inner logo-scroller-inner">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/10/wordpress-logo-1-1.png" alt="WordPress">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png" alt="Facebook">
+                            <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo-1.png" alt="Instagram">
+                            <img src="https://logodownload.org/wp-content/uploads/2018/11/woocommerce-logo-1.png" alt="WooCommerce">
+                            <img src="https://logodownload.org/wp-content/uploads/2019/08/tiktok-logo-1.png" alt="TikTok">
                             <!-- Duplicate for seamless scroll -->
-                            <img src="https://logodownload.org/wp-content/uploads/2014/10/wordpress-logo-1-1.png" alt="WordPress" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png" alt="Facebook" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo-1.png" alt="Instagram" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2018/11/woocommerce-logo-1.png" alt="WooCommerce" class="h-10 mx-8">
-                            <img src="https://logodownload.org/wp-content/uploads/2019/08/tiktok-logo-1.png" alt="TikTok" class="h-10 mx-8">
+                             <img src="https://logodownload.org/wp-content/uploads/2014/10/wordpress-logo-1-1.png" alt="WordPress">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png" alt="Facebook">
+                            <img src="https://logodownload.org/wp-content/uploads/2017/04/instagram-logo-1.png" alt="Instagram">
+                            <img src="https://logodownload.org/wp-content/uploads/2018/11/woocommerce-logo-1.png" alt="WooCommerce">
+                            <img src="https://logodownload.org/wp-content/uploads/2019/08/tiktok-logo-1.png" alt="TikTok">
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- About Abdul Nasir -->
+            <!-- About Section -->
             <section class="py-20">
                  <div class="container mx-auto px-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="animated-section">
-                            <img src="https://placehold.co/500x500/00ffff/0a0a0a?text=Nasir" alt="Abdul Nasir" class="rounded-lg mx-auto border-2 border-[var(--neon-blue)] shadow-lg">
+                            <img src="https://storage.googleapis.com/maker-studio-project-assets-prod/v1/4507bd59-009d-478e-9403-d6c1f1f2382c/projects/15720d2d-45e0-47b7-9e32-5ac5123d4679/WhatsApp_Image_2025-04-07_at_14.14.52_8cd1e6ad-removebg-preview.png" alt="Nasir" class="rounded-lg mx-auto border-2 border-[var(--neon-blue)] shadow-lg">
                         </div>
                         <div class="animated-section lg:text-left text-center">
-                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About Abdul Nasir</h2>
-                            <p class="text-gray-400 mb-4 text-lg">A passionate Web Developer & Digital Marketer focused on solving real-world problems through tech. With years of experience in the WordPress ecosystem, I create tools that are not only powerful and efficient but also intuitive and user-friendly, helping businesses thrive in the digital landscape.</p>
-                             <a href="#about" class="nav-link text-[var(--neon-blue)] font-semibold text-lg">Learn More About Our Mission &rarr;</a>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About Me</h2>
+                            <div class="text-gray-400 text-lg space-y-4">
+                               <p>My name is Abdul Nasir.</p>
+                               <p>I’ve been working in Digital Marketing for 3 years, Web Design for 2 years, and Backend Development for the past 1 year.</p>
+                               <p>I’ve successfully completed 100+ client projects, including international brands like Abayabuth.com, which I’ve helped manage directly.</p>
+                               <p>I don’t just sell services — I solve real business problems and help clients grow. That’s the reason why many of my clients still work with me to this day.</p>
+                               <p>Also, my pricing is always tailored to fit the client's budget — so you don’t need to keep searching. You’ve already found the right partner.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
              <!-- Client Reviews Section -->
-            <section class="py-20 bg-black">
+            <section class="py-20 bg-black overflow-hidden">
                 <div class="container mx-auto px-6">
-                    <h2 class="animated-section text-3xl md:text-5xl font-bold text-white text-center mb-12">Client Reviews</h2>
-                    <div class="testimonial-carousel max-w-3xl mx-auto relative">
-                        <div class="testimonial-item active">
-                            <div class="bg-black/50 p-8 rounded-lg neon-border text-center">
-                                <p class="text-gray-300 italic text-xl">"The WP Speedster plugin is a game-changer. My site has never been faster. Incredible support team too!"</p>
-                                <div class="mt-6">
-                                    <p class="font-bold text-white text-lg">Alex Johnson</p>
-                                    <p class="text-sm text-gray-500">Digital Agency Owner</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="bg-black/50 p-8 rounded-lg neon-border text-center">
-                                <p class="text-gray-300 italic text-xl">"Guardian Security saved my site from a nasty attack. Easy to set up and works flawlessly. Highly recommended."</p>
-                                <div class="mt-6">
-                                    <p class="font-bold text-white text-lg">Samantha Lee</p>
-                                    <p class="text-sm text-gray-500">E-commerce Entrepreneur</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="bg-black/50 p-8 rounded-lg neon-border text-center">
-                                <p class="text-gray-300 italic text-xl">"The team's custom development work was top-notch. They understood our needs perfectly and delivered on time."</p>
-                                <div class="mt-6">
-                                    <p class="font-bold text-white text-lg">David Chen</p>
-                                    <p class="text-sm text-gray-500">Marketing Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 text-2xl text-gray-500 hover:text-white"><i class="fas fa-chevron-left"></i></button>
-                        <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 text-2xl text-gray-500 hover:text-white"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+                    <h2 class="animated-section text-3xl md:text-5xl font-bold text-white text-center mb-12">What Our Clients Say</h2>
                 </div>
+                 <div class="scroller">
+                    <div class="scroller-inner">
+                        <!-- All reviews in a single row -->
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I was struggling to scale my Shopify store. Abdul Nasir not only redesigned my theme but also helped me improve conversion rates. Highly impressed!”</p><div class="mt-4"><p class="font-bold text-white">Nouman R.</p><p class="text-sm text-gray-500">Lahore, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“From product page to checkout, Nasir bhai did everything professionally. I'm already seeing better results.”</p><div class="mt-4"><p class="font-bold text-white">Alisha M.</p><p class="text-sm text-gray-500">Karachi, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Created a WordPress website for my real estate business. Fast, clean, and mobile-friendly.”</p><div class="mt-4"><p class="font-bold text-white">Rehman Z.</p><p class="text-sm text-gray-500">Islamabad, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“They handled our Facebook ads and made creatives that finally clicked. Got leads in the first week.”</p><div class="mt-4"><p class="font-bold text-white">Sobhan Tools</p><p class="text-sm text-gray-500">Sialkot, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Used their call confirmation & site speed optimization service. Fast results!”</p><div class="mt-4"><p class="font-bold text-white">Syed Shah</p><p class="text-sm text-gray-500">Lahore, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Integrated my Woo store with external CRMs and payment gateway. Seamless flow.”</p><div class="mt-4"><p class="font-bold text-white">Danish M.</p><p class="text-sm text-gray-500">Islamabad, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I hired Nasir Plugins for a full store revamp. Super smooth communication and a clean final product.”</p><div class="mt-4"><p class="font-bold text-white">Claire P.</p><p class="text-sm text-gray-500">London, UK</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I needed a custom plugin for my booking site — Nasir got it done in 4 days. Amazing!”</p><div class="mt-4"><p class="font-bold text-white">Sophie L.</p><p class="text-sm text-gray-500">Berlin, Germany</p></div></div>
+                        
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I was struggling to scale my Shopify store. Abdul Nasir not only redesigned my theme but also helped me improve conversion rates. Highly impressed!”</p><div class="mt-4"><p class="font-bold text-white">Nouman R.</p><p class="text-sm text-gray-500">Lahore, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“From product page to checkout, Nasir bhai did everything professionally. I'm already seeing better results.”</p><div class="mt-4"><p class="font-bold text-white">Alisha M.</p><p class="text-sm text-gray-500">Karachi, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Created a WordPress website for my real estate business. Fast, clean, and mobile-friendly.”</p><div class="mt-4"><p class="font-bold text-white">Rehman Z.</p><p class="text-sm text-gray-500">Islamabad, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“They handled our Facebook ads and made creatives that finally clicked. Got leads in the first week.”</p><div class="mt-4"><p class="font-bold text-white">Sobhan Tools</p><p class="text-sm text-gray-500">Sialkot, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Used their call confirmation & site speed optimization service. Fast results!”</p><div class="mt-4"><p class="font-bold text-white">Syed Shah</p><p class="text-sm text-gray-500">Lahore, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“Integrated my Woo store with external CRMs and payment gateway. Seamless flow.”</p><div class="mt-4"><p class="font-bold text-white">Danish M.</p><p class="text-sm text-gray-500">Islamabad, Pakistan</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I hired Nasir Plugins for a full store revamp. Super smooth communication and a clean final product.”</p><div class="mt-4"><p class="font-bold text-white">Claire P.</p><p class="text-sm text-gray-500">London, UK</p></div></div>
+                        <div class="review-card bg-black/50 p-6 rounded-lg neon-border"><p class="text-gray-300 italic">“I needed a custom plugin for my booking site — Nasir got it done in 4 days. Amazing!”</p><div class="mt-4"><p class="font-bold text-white">Sophie L.</p><p class="text-sm text-gray-500">Berlin, Germany</p></div></div>
+                    </div>
+                 </div>
             </section>
         </div>
 
@@ -352,54 +378,153 @@
                     <h2 class="text-3xl md:text-5xl font-bold text-white">Our Services</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border">
-                        <i class="fab fa-wordpress text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">WordPress Plugin Development</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Custom plugin solutions tailored to your specific business needs, from simple utilities to complex integrations.</p>
-                        <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col">
+                        <div class="flex-grow">
+                            <i class="fab fa-wordpress text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">WordPress Plugin Development</h3>
+                            <p class="text-gray-400 mb-4">Custom plugin solutions tailored to your specific business needs, from simple utilities to complex integrations.</p>
+                        </div>
+                        <a href="#service-wp-plugins" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border" style="transition-delay: 100ms;">
-                        <i class="fas fa-store text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">WooCommerce Store Setup</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">From setup to customization, we build powerful and scalable e-commerce stores that drive sales.</p>
-                         <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 100ms;">
+                        <div class="flex-grow">
+                            <i class="fas fa-store text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">WooCommerce Store Setup</h3>
+                            <p class="text-gray-400 mb-4">From setup to customization, we build powerful and scalable e-commerce stores that drive sales.</p>
+                        </div>
+                         <a href="#service-woocommerce" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border" style="transition-delay: 200ms;">
-                        <i class="fas fa-bullhorn text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">Digital Marketing</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Holistic marketing strategies to increase your online presence, generate leads, and boost revenue.</p>
-                         <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 200ms;">
+                        <div class="flex-grow">
+                            <i class="fas fa-bullhorn text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">Digital Marketing</h3>
+                            <p class="text-gray-400 mb-4">Holistic marketing strategies to increase your online presence, generate leads, and boost revenue.</p>
+                        </div>
+                         <a href="#service-digital-marketing" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border" style="transition-delay: 300ms;">
-                        <i class="fas fa-chart-line text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">SEO Optimization</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Climb the search engine rankings and attract more organic traffic with our data-driven SEO services.</p>
-                         <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 300ms;">
+                         <div class="flex-grow">
+                            <i class="fas fa-chart-line text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">SEO Optimization</h3>
+                            <p class="text-gray-400 mb-4">Climb the search engine rankings and attract more organic traffic with our data-driven SEO services.</p>
+                        </div>
+                         <a href="#service-seo" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border" style="transition-delay: 400ms;">
-                        <i class="fas fa-hashtag text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">Social Media Management</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">We manage your social media channels to build a strong community and engage with your audience effectively.</p>
-                         <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 400ms;">
+                        <div class="flex-grow">
+                            <i class="fas fa-hashtag text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">Social Media Management</h3>
+                            <p class="text-gray-400 mb-4">We manage your social media channels to build a strong community and engage with your audience effectively.</p>
+                        </div>
+                         <a href="#service-smm" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
-                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border" style="transition-delay: 500ms;">
-                        <i class="fas fa-palette text-4xl text-[var(--neon-blue)] mb-4"></i>
-                        <h3 class="text-2xl font-bold text-white mb-3">Website Design</h3>
-                        <p class="text-gray-400 mb-4 flex-grow">Modern, user-centric website designs that are both beautiful and conversion-focused.</p>
-                         <a href="#" class="font-semibold text-[var(--neon-blue)] hover:text-white">Read Article &rarr;</a>
+                     <div class="animated-card bg-black/50 p-8 rounded-lg neon-border flex flex-col" style="transition-delay: 500ms;">
+                        <div class="flex-grow">
+                            <i class="fas fa-palette text-4xl text-[var(--neon-blue)] mb-4"></i>
+                            <h3 class="text-2xl font-bold text-white mb-3">Website Design</h3>
+                            <p class="text-gray-400 mb-4">Modern, user-centric website designs that are both beautiful and conversion-focused.</p>
+                        </div>
+                         <a href="#service-web-design" class="neon-button w-full text-center mt-6 nav-link">Read Article</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Service Detail Pages -->
+        <section id="service-wp-plugins" class="page max-w-4xl mx-auto px-6 service-article">
+            <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">WordPress Plugin Development</h2>
+            <p class="text-gray-400 text-lg">In today's digital world, a standard website isn't always enough. To truly stand out and serve your audience's unique needs, you need custom functionality. That's where our WordPress Plugin Development service comes in. We don't just build plugins; we create tailored solutions that solve specific problems, streamline your operations, and enhance your user experience.</p>
+            <h3>Our Process: From Idea to Integration</h3>
+            <p>Our development process is collaborative and transparent. We start by understanding your vision. During the initial consultation, we dive deep into your requirements, goals, and the challenges you're facing. This allows us to map out a clear strategy and define the scope of the plugin. Once we have a solid plan, our design and development teams get to work, creating wireframes and mockups to visualize the user flow and interface before writing a single line of code.</p>
+            <p>Development is an iterative process. We build the plugin in stages, or sprints, allowing for regular feedback and adjustments. You'll have access to a staging environment where you can test the plugin's features as they are being built. We specialize in writing clean, efficient, and well-documented code that adheres to WordPress coding standards. This ensures your plugin is not only powerful but also secure and compatible with future WordPress updates. Before the final launch, we conduct rigorous testing across multiple devices and browsers to identify and fix any bugs, ensuring a seamless user experience.</p>
+            <h3>Why Choose a Custom Plugin?</h3>
+            <p>While the WordPress repository offers thousands of free plugins, they often come with limitations. A pre-built plugin might have bloated code, unnecessary features that slow down your site, or it might not perfectly match your workflow. A custom plugin, on the other hand, is built just for you. It's lightweight, secure, and does exactly what you need it to do, nothing more. This leads to better performance, enhanced security, and a more intuitive experience for you and your users. Whether you need to integrate a third-party API, create a unique booking system, or add a custom feature to your e-commerce store, we have the expertise to bring your vision to life.</p>
+        </section>
+        <section id="service-woocommerce" class="page max-w-4xl mx-auto px-6 service-article">
+            <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">WooCommerce Store Setup</h2>
+            <p class="text-gray-400 text-lg">An online store is more than just a place to list products; it's a digital storefront that represents your brand and drives your business. Our WooCommerce Store Setup service is designed to create a powerful, user-friendly, and conversion-optimized e-commerce platform. We handle everything from the initial setup to the final launch, ensuring your store is ready to attract customers and generate sales from day one.</p>
+            <h3>Building a Foundation for Success</h3>
+            <p>Our process begins with a deep dive into your business. We learn about your products, your target audience, and your long-term goals. This allows us to design a store that not only looks great but also functions flawlessly. We help you choose the right theme, customize it to match your brand identity, and set up all the essential e-commerce functionalities. This includes configuring payment gateways like Stripe and PayPal, setting up shipping zones and rates, and managing inventory.</p>
+            <p>A successful store is an optimized store. We focus on creating a seamless user experience, from browsing products to the final checkout. This includes designing intuitive product pages, a streamlined checkout process, and ensuring your site is fully responsive on all devices. We also optimize for speed, as a fast-loading website is crucial for keeping customers engaged and improving search engine rankings. Our team implements best practices for performance, such as image optimization and caching, to ensure your store runs smoothly even during peak traffic.</p>
+            <h3>Beyond the Basics</h3>
+            <p>Our service doesn't stop at setup. We can integrate your WooCommerce store with various third-party services, such as CRM systems, email marketing platforms, and accounting software, to automate your workflow and save you time. We can also develop custom features, such as product configurators, subscription models, or unique discount rules, to give you a competitive edge. With our expertise, your WooCommerce store will be a robust, scalable platform that grows with your business.</p>
+        </section>
+        <section id="service-digital-marketing" class="page max-w-4xl mx-auto px-6 service-article">
+             <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Digital Marketing</h2>
+            <p class="text-gray-400 text-lg">In today's competitive landscape, having a great product or service is only half the battle. You need to connect with your target audience where they spend their time: online. Our Digital Marketing service offers a holistic approach to building your brand, engaging your audience, and driving measurable results. We combine data-driven strategies with creative execution to create campaigns that resonate and convert.</p>
+            <h3>A Multi-Faceted Strategy</h3>
+            <p>We believe there is no one-size-fits-all solution in digital marketing. Our approach is to create a tailored strategy that leverages the right channels for your business. This typically includes a mix of:</p>
+            <ul>
+                <li><strong>Search Engine Optimization (SEO):</strong> Improving your visibility on search engines like Google to attract high-intent organic traffic.</li>
+                <li><strong>Social Media Marketing (SMM):</strong> Building a community around your brand on platforms like Facebook, Instagram, and TikTok through engaging content and targeted advertising.</li>
+                <li><strong>Content Marketing:</strong> Creating valuable content, such as blog posts, videos, and infographics, to attract and educate your audience, establishing you as an authority in your industry.</li>
+                <li><strong>Pay-Per-Click (PPC) Advertising:</strong> Running targeted ad campaigns on Google Ads and social media to generate immediate traffic and leads.</li>
+            </ul>
+            <h3>How We Work</h3>
+            <p>Our process starts with research. We analyze your industry, competitors, and target audience to identify key opportunities. Based on our findings, we develop a comprehensive marketing plan with clear goals and KPIs. We then execute the plan, constantly monitoring performance and optimizing our campaigns for the best possible results. You'll receive regular reports that provide transparent insights into our progress, so you always know how your marketing budget is performing. Our goal is to become an extension of your team, providing the expertise and support you need to achieve sustainable growth.</p>
+        </section>
+        <section id="service-seo" class="page max-w-4xl mx-auto px-6 service-article">
+            <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">SEO Optimization</h2>
+            <p class="text-gray-400 text-lg">Search Engine Optimization (SEO) is the art and science of getting your website to rank higher on search engines like Google. Higher rankings mean more visibility, more organic traffic, and ultimately, more customers. Our SEO Optimization service is a comprehensive, data-driven approach to improving your website's performance in search results. We focus on three core pillars: technical SEO, on-page SEO, and off-page SEO.</p>
+            <h3>Technical SEO: The Foundation</h3>
+            <p>A strong technical foundation is crucial for SEO success. We start with a thorough audit of your website to identify and fix any technical issues that could be hurting your rankings. This includes optimizing your site speed, ensuring it's mobile-friendly, fixing broken links, and creating an XML sitemap to help search engines crawl and index your site more efficiently. We also handle advanced aspects like implementing schema markup to help search engines understand your content better and display rich snippets in search results.</p>
+            <h3>On-Page SEO: Content is King</h3>
+            <p>On-page SEO involves optimizing the content on your website to make it more relevant and appealing to both search engines and users. We conduct in-depth keyword research to identify the terms your target audience is searching for. We then strategically integrate these keywords into your page titles, meta descriptions, headings, and body content. We also focus on creating high-quality, engaging content that answers users' questions and encourages them to stay on your site longer, which is a key ranking factor.</p>
+            <h3>Off-Page SEO: Building Authority</h3>
+            <p>Off-page SEO refers to activities done outside of your website to improve its authority and reputation. The most important aspect of this is link building—getting other reputable websites to link to yours. These backlinks act as a vote of confidence in the eyes of search engines. We use white-hat link-building strategies to acquire high-quality links from relevant websites in your industry, helping you build a strong backlink profile and outrank your competitors.</p>
+        </section>
+        <section id="service-smm" class="page max-w-4xl mx-auto px-6 service-article">
+            <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Social Media Management</h2>
+            <p class="text-gray-400 text-lg">Social media is more than just a platform for posting updates; it's a powerful tool for building a community, engaging with customers, and driving business growth. Our Social Media Management (SMM) service is designed to help you harness the full potential of platforms like Facebook, Instagram, TikTok, and LinkedIn. We create and execute a tailored strategy that aligns with your brand and business objectives.</p>
+            <h3>Strategy and Content Creation</h3>
+            <p>A successful social media presence starts with a solid strategy. We work with you to define your target audience, identify the most relevant platforms, and establish your brand's voice and tone. We then develop a content calendar with a mix of engaging, educational, and promotional content. Our team of creatives can handle everything from writing compelling copy to designing eye-catching graphics and producing high-quality videos. We ensure that all content is optimized for each platform to maximize reach and engagement.</p>
+            <h3>Community Management and Growth</h3>
+            <p>Building a loyal community is at the heart of what we do. We actively monitor your social media channels, respond to comments and messages in a timely manner, and foster conversations with your followers. We also implement strategies to grow your audience, such as running contests, collaborating with influencers, and using targeted advertising to reach new potential customers. We focus on attracting followers who are genuinely interested in your brand, leading to higher engagement and better conversion rates.</p>
+            <h3>Analytics and Reporting</h3>
+            <p>We believe in transparency and results. We provide you with regular reports that track key metrics, such as reach, engagement, follower growth, and website traffic from social media. These insights help us understand what's working and what's not, allowing us to continuously refine our strategy and improve our performance over time. With our SMM service, you can be confident that your social media presence is in expert hands, freeing you up to focus on running your business.</p>
+        </section>
+        <section id="service-web-design" class="page max-w-4xl mx-auto px-6 service-article">
+            <a href="#services" class="nav-link text-[var(--neon-blue)] mb-8 inline-block">&larr; Back to Services</a>
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Website Design</h2>
+            <p class="text-gray-400 text-lg">Your website is often the first interaction a potential customer has with your brand. It needs to be more than just a digital brochure; it needs to be an experience. Our Website Design service focuses on creating visually stunning, user-friendly, and conversion-optimized websites that make a lasting impression. We combine creative design with strategic thinking to build a site that not only looks great but also achieves your business goals.</p>
+            <h3>A User-Centric Approach</h3>
+            <p>We believe that the best websites are built with the user in mind. Our design process starts with a deep understanding of your target audience and their needs. We create detailed user personas and journey maps to guide our design decisions, ensuring that every element of the website is intuitive and easy to use. We design clean, organized layouts that make it easy for visitors to find the information they're looking for and take the desired action, whether it's making a purchase, filling out a form, or contacting you for more information.</p>
+            <h3>From Concept to Creation</h3>
+            <p>Our design process is highly collaborative. We begin by creating wireframes to establish the structure and layout of the website. Once the wireframes are approved, we move on to creating high-fidelity mockups that bring the design to life with your brand's colors, typography, and imagery. You'll have the opportunity to provide feedback at every stage, ensuring the final design aligns perfectly with your vision. We also ensure that all our designs are fully responsive, meaning they look and function perfectly on all devices, from desktops to smartphones.</p>
+            <h3>Designed for Conversion</h3>
+            <p>A beautiful website is great, but a website that converts is even better. We incorporate conversion-focused design principles into every site we build. This includes creating clear calls-to-action (CTAs), designing trust-building elements like testimonials and security badges, and optimizing the checkout process for e-commerce sites. We use A/B testing and user feedback to continuously improve the user experience and maximize your conversion rates. The end result is a website that not only represents your brand in the best possible light but also serves as a powerful tool for business growth.</p>
+        </section>
+
         <!-- About Us Page -->
         <section id="about" class="page">
-             <div class="container mx-auto px-6">
+             <div class="container mx-auto px-6 max-w-4xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white">About Nasir Plugins</h2>
-                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">Placeholder text: Our mission, team introduction, and company history will be detailed here soon. We are committed to creating innovative solutions for the WordPress community.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white">About Digital Experts</h2>
                 </div>
-                <!-- More detailed content can be added here later -->
+                <div class="article-content text-gray-400">
+                    <h3>Our Mission: More Than Just Code</h3>
+                    <p>In a digital world saturated with templates and one-size-fits-all solutions, we founded Digital Experts with a different mission: to be architects of genuine business growth. We saw a gap between what businesses were offered and what they truly needed. It's not about selling a service; it's about understanding a vision and building the digital tools to make that vision a reality. Our core philosophy is simple: we are problem-solvers first and developers second. We believe that technology should be an enabler, not a barrier. Whether it’s a custom plugin, a high-converting e-commerce store, or a targeted marketing campaign, the end goal is always the same: to deliver tangible, measurable results that help our clients thrive. We don’t just build websites; we build partnerships. This client-centric approach is woven into everything we do, from the initial consultation to ongoing support, ensuring that we are not just a service provider, but a trusted extension of your team.</p>
+                    
+                    <h3>The Digital Experts Difference: A Holistic Approach</h3>
+                    <p>What truly sets us apart is our holistic perspective on digital success. We understand that a beautiful design is ineffective without a strong technical foundation, and a technically perfect website is useless without the right marketing strategy to bring in visitors. That’s why we integrate our services to work in harmony.</p>
+                    <ul>
+                        <li><strong>Technical Excellence:</strong> At the heart of our work is a commitment to quality. Our code is clean, optimized, and secure, adhering to the highest industry standards. We build solutions that are not only powerful today but are also scalable and maintainable for the future. We understand that site speed, security, and reliability are non-negotiable for user trust and search engine rankings.</li>
+                        <li><strong>Data-Driven Strategy:</strong> We don't rely on guesswork. Every decision, from SEO keywords to ad campaign targeting and UI/UX design choices, is backed by data and thorough analysis. We track key performance indicators (KPIs) relentlessly, providing our clients with transparent reports that show real progress. This allows us to be agile, adapting our strategies to capitalize on what's working and improve on what isn't.</li>
+                        <li><strong>Creative & User-Centric Design:</strong> We believe that great design is about more than just aesthetics; it's about creating intuitive and engaging experiences. We put ourselves in your customers' shoes to design websites and interfaces that are not only beautiful but also easy to navigate, leading to higher engagement and better conversion rates.</li>
+                    </ul>
+
+                    <h3>Our Journey and the Founder's Vision</h3>
+                    <p>Digital Experts was born from a passion for technology and a desire to help businesses navigate the complexities of the online world. Our founder, Abdul Nasir, began his journey with a clear focus on solving real-world challenges through technology. With a unique blend of expertise spanning three years in Digital Marketing, two years in Web Design, and a solid year in Backend Development, he brings a comprehensive, 360-degree view to every project. This multi-disciplinary background is the foundation of our company's holistic approach.</p>
+                    <p>Having successfully delivered over 100 projects for clients worldwide, including managing international brands like Abayabuth.com, we have a proven track record of success. These experiences have taught us that the most valuable service we can offer is not just our technical skill, but our ability to listen, understand, and build lasting relationships. The reason many of our clients continue to work with us is that they know we are as invested in their success as they are.</p>
+                    
+                    <h3>Our Vision for the Future</h3>
+                    <p>The digital landscape is constantly evolving, and so are we. We are committed to staying at the forefront of technology, continuously exploring emerging trends like AI-driven personalization, headless CMS architectures, and new social media platforms. Our goal is to be more than just a service provider; we aim to be a long-term strategic partner who can guide you through the ever-changing digital world. We believe in empowering our clients with the tools and knowledge they need to not only compete but to lead in their respective industries. Your search for a reliable digital partner ends here. Let's build something great together.</p>
+                </div>
             </div>
         </section>
 
@@ -410,13 +535,7 @@
                     <h2 class="text-3xl md:text-5xl font-bold text-white">Privacy Policy</h2>
                 </div>
                 <div class="space-y-6 text-gray-400">
-                    <p>Placeholder for Privacy Policy. This section will detail how we collect, use, and protect your data. We are committed to safeguarding your privacy and ensuring transparency in our practices.</p>
-                    <h3 class="text-xl text-white font-bold pt-4">Information We Collect</h3>
-                    <p>Placeholder content describing the types of information collected (e.g., personal, non-personal).</p>
-                    <h3 class="text-xl text-white font-bold pt-4">How We Use Your Information</h3>
-                    <p>Placeholder content explaining the purpose of data collection.</p>
-                    <h3 class="text-xl text-white font-bold pt-4">Data Security</h3>
-                    <p>Placeholder content outlining the security measures in place.</p>
+                    <p>Placeholder for Privacy Policy...</p>
                 </div>
             </div>
         </section>
@@ -442,6 +561,24 @@
                         </div>
                     </form>
                     <div id="form-status" class="text-center mt-6"></div>
+                    <div class="text-center mt-12 space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-3">Contact Information</h3>
+                            <div class="text-gray-400 space-y-2 text-lg">
+                                <p><i class="fas fa-phone text-[var(--neon-blue)] mr-2"></i> <a href="tel:+923415748311" class="hover:text-[var(--neon-blue)]">03415748311</a></p>
+                                <p><i class="fas fa-phone text-[var(--neon-blue)] mr-2"></i> <a href="tel:+923315349223" class="hover:text-[var(--neon-blue)]">03315349223</a></p>
+                                <p><i class="fas fa-envelope text-[var(--neon-blue)] mr-2"></i> <a href="mailto:digitalexpertsbusiness@gmail.com" class="hover:text-[var(--neon-blue)]">digitalexpertsbusiness@gmail.com</a></p>
+                            </div>
+                        </div>
+                         <div>
+                            <p class="text-gray-400 mb-4">Connect with us on social media</p>
+                            <div class="flex justify-center space-x-6 text-2xl">
+                                <a href="https://www.facebook.com/digitalexpertsbusiness/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/abdulnasirnasirofficial/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.threads.net/@abdulnasirnasirofficial" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-threads"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -452,7 +589,7 @@
         <div class="container mx-auto px-6 text-center text-gray-400">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div class="md:text-left">
-                    <a href="#home" class="text-2xl font-bold tracking-widest text-white nav-link mb-2 inline-block">NASIR<span class="text-[var(--neon-blue)]">PLUGINS</span></a>
+                    <a href="#home" class="text-xl md:text-2xl font-bold tracking-widest nav-link mb-2 inline-block"><span class="text-white">DIGITAL</span><span class="text-[var(--neon-blue)]">EXPERTS</span></a>
                     <p class="text-gray-500 text-sm">Empowering Your Digital Presence</p>
                 </div>
                 <div>
@@ -468,8 +605,8 @@
                     <p class="font-bold text-white mb-4">Connect With Us</p>
                     <div class="flex justify-center md:justify-end space-x-6 text-2xl mb-4">
                         <a href="https://www.facebook.com/digitalexpertsbusiness/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/abdulnasirnasirofficial/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.threads.net/@abdulnasirnasirofficial" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--neon-blue)] transition-colors"><i class="fab fa-threads"></i></a>
                     </div>
                     <form id="newsletter-form" class="flex max-w-sm mx-auto md:ml-auto">
                         <input type="email" placeholder="Your email for newsletter" class="w-full bg-black/50 border border-r-0 border-[var(--border-color)] rounded-l-md p-2 text-white focus:outline-none focus:border-[var(--neon-blue)] transition-colors">
@@ -477,7 +614,7 @@
                     </form>
                 </div>
             </div>
-            <p class="text-gray-600 text-sm mt-12 border-t border-[var(--border-color)] pt-8">&copy; 2024 Nasir Plugins. All Rights Reserved.</p>
+            <p class="text-gray-600 text-sm mt-12 border-t border-[var(--border-color)] pt-8">&copy; 2024 Digital Experts. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -530,33 +667,6 @@
             });
         }, { threshold: 0.1 });
         animatedElements.forEach(el => observer.observe(el));
-
-        // Testimonial Carousel
-        const testimonials = document.querySelectorAll('.testimonial-item');
-        let currentTestimonial = 0;
-        
-        function showTestimonial(index) {
-            testimonials.forEach((item, i) => {
-                item.classList.toggle('active', i === index);
-            });
-        }
-        
-        document.getElementById('next-testimonial')?.addEventListener('click', () => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        });
-
-        document.getElementById('prev-testimonial')?.addEventListener('click', () => {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        });
-        
-        // Auto-cycle testimonials
-        if(testimonials.length > 0) {
-            setInterval(() => {
-                document.getElementById('next-testimonial').click();
-            }, 5000);
-        }
 
         // Newsletter Form
         document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
